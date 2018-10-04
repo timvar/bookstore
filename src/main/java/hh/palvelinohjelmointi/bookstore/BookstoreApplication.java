@@ -11,8 +11,10 @@ import hh.palvelinohjelmointi.bookstore.domain.Category;
 import hh.palvelinohjelmointi.bookstore.repository.BookRepository;
 import hh.palvelinohjelmointi.bookstore.repository.CategoryRepository;
 
+
 @SpringBootApplication
 public class BookstoreApplication {
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);

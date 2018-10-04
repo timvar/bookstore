@@ -25,7 +25,14 @@ public class BookController {
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
-	
+
+	// Login page for Bookstore
+	@GetMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
+
+	// Home page
 	@GetMapping(value="/index")
 	public String showHomePage(){
 		

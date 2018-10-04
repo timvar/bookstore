@@ -1,4 +1,8 @@
 package hh.palvelinohjelmointi.bookstore.repository;
 
-public interface UserRepository {
+import hh.palvelinohjelmointi.bookstore.domain.User;
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserRepository extends CrudRepository<User, Long> {
+    User findByUsername(String username);
 }
