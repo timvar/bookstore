@@ -1,5 +1,7 @@
 package hh.palvelinohjelmointi.bookstore;
 
+import hh.palvelinohjelmointi.bookstore.domain.User;
+import hh.palvelinohjelmointi.bookstore.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,7 +23,7 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner insertData(BookRepository bookRepository, CategoryRepository categoryRepository) {
+	public CommandLineRunner insertData(BookRepository bookRepository, CategoryRepository categoryRepository, UserRepository userRepository) {
 		return (args) -> {
 			categoryRepository.save(new Category("Dekkari"));
 			categoryRepository.save(new Category("Luonto"));
@@ -32,7 +34,13 @@ public class BookstoreApplication {
 			bookRepository.save(new Book("Sienet - aloittelijan opas", "Teija Saarinen", 2014, "9789526606163", 3.90, categoryRepository.findByName("Luonto").get(0)));
 			bookRepository.save(new Book("Tuntematon Kimi Räikkönen", "Kari Hotakainen", 2018, "9789522345677", 19.90, categoryRepository.findByName("Elämänkerta").get(0)));
 			bookRepository.save(new Book("Inferno", "Dan Brown", 2013, "9789510402061", 9.90, categoryRepository.findByName("Jännitys").get(0)));
-			
+
+			// luodaan kaksi käyttäjää hakkeri (USER) ja isoveli (ADMIN)
+			User user1 = new User("hakkeri", "$2a$10$d/ok5aJfItooznhhm4H.FOI7u8003ib.kgA7vfD.DJSchL7PnCaVG", "foo@mail.com", "USER");
+			User user2 = new User("isoveli", "$2a$10$TOmcztEqRCOxYR74c/WHDOFN9MBo/EcU7YW/l9IM/jGpujwZwFdni", "admin@it.org", "ADMIN");
+
+			userRepository.save(user1);
+			userRepository.save(user2);
 	
 		};
 	}
