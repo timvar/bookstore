@@ -1,6 +1,6 @@
 package hh.palvelinohjelmointi.bookstore;
 
-import hh.palvelinohjelmointi.bookstore.web.BookController;
+import hh.palvelinohjelmointi.bookstore.web.UserDetailServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,22 +9,21 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 /**
- * Testing that context is creating your controller
+ * Testing that context is creating userDetailService
  */
 
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 
-public class BookControllerTest {
+public class UserDetailServiceImplTest {
 
     @Autowired
-    private BookController bookController;
+    private UserDetailServiceImpl userDetailService;
 
     @Test
     public void contextLoads() throws Exception {
-        assertThat(bookController).isNotNull();
+        assertThat(userDetailService).isNotNull();
     }
 }

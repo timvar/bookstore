@@ -29,6 +29,7 @@ public class BookstoreApplication {
 			categoryRepository.save(new Category("Luonto"));
 			categoryRepository.save(new Category("Elämänkerta"));
 			categoryRepository.save(new Category("Jännitys"));
+			categoryRepository.save(new Category("Liikunta"));
 			
 			bookRepository.save(new Book("Raid ja armonlaukaus", "Harri Nykänen", 2018, "9789522894526", 14.90, categoryRepository.findByName("Dekkari").get(0)));
 			bookRepository.save(new Book("Sienet - aloittelijan opas", "Teija Saarinen", 2014, "9789526606163", 3.90, categoryRepository.findByName("Luonto").get(0)));
