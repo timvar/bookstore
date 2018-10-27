@@ -33,7 +33,7 @@ public class BookController {
 	}
 
 	// Home page
-	@GetMapping(value="/index")
+	@GetMapping(value="*")
 	public String showHomePage(){
 		
 		return "home";
